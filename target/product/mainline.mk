@@ -32,7 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PACKAGES += \
-    PhotoTable \
     WallpaperPicker \
 
 ifeq ($(AOSIP_BUILD),)
