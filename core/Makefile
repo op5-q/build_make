@@ -845,8 +845,8 @@ $(call dist-for-goals, sdk win_sdk sdk_addon, $(INSTALLED_FILES_FILE_ROOT))
 ifdef BOARD_INCLUDE_DTB_IN_BOOTIMG
 INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
 ifdef BOARD_PREBUILT_DTBIMAGE_DIR
-$(INSTALLED_DTBIMAGE_TARGET): $(BOARD_PREBUILT_DTBIMAGE_DIR)
-	cat $(shell find $(BOARD_PREBUILT_DTBIMAGE_DIR) -type f -name "*.dtb" | sort) > $@
+$(INSTALLED_DTBIMAGE_TARGET) : $(sort $(wildcard $(BOARD_PREBUILT_DTBIMAGE_DIR)/*.dtb))
+	cat $^ > $@
 endif
 endif
 
@@ -3459,7 +3459,7 @@ endif
 
 ifeq ($(build_otatools_package),true)
 OTATOOLS :=  $(HOST_OUT_EXECUTABLES)/minigzip \
-  $(HOST_OUT_EXECUTABLES)/aapt \
+  $(HOST_OUT_EXECUTABLES)/aapt2 \
   $(HOST_OUT_EXECUTABLES)/checkvintf \
   $(HOST_OUT_EXECUTABLES)/mkbootfs \
   $(HOST_OUT_EXECUTABLES)/mkbootimg \
