@@ -42,6 +42,9 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.config.ringtone=The_big_adventure.ogg \
     ro.config.notification_sound=Popcorn.ogg
 
+PRODUCT_PACKAGES += \
+    LiveWallpapersPicker
+
 # Put en_US first in the list, so make it default.
 PRODUCT_LOCALES := en_US
 
