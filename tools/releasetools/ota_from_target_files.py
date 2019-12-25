@@ -924,13 +924,13 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("*  *  *   *  * *  *  * *  * *   *  *  *  *   *");
   script.Print("*  * ***  *  * *  **** **** *** *  *  **** ***");
   script.Print(" ");
-  script.Print("Android Version : %s "%(android_version));
-  script.Print("Security patch  : %s "%(security_patch));
-  script.Print("ROM             : Nitrogen OS");
-  script.Print("Main Author        : xyyx");
+  script.Print("Android Version      : %s "%(android_version));
+  script.Print("Security patch       : %s "%(security_patch));
+  script.Print("ROM                  : Nitrogen OS");
+  script.Print("Main Author          : xyyx");
   script.Print("Fork's Author        : poad42");
-  script.Print("Build Date      : %s "%(build));
-  script.Print("Device          : %s "%(model));
+  script.Print("Build Date           : %s "%(build));
+  script.Print("Device               : %s "%(model));
   script.Print("----------------------------------------------");
 
   script.ShowProgress(system_progress, 0)
