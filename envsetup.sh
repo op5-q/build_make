@@ -17,6 +17,7 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
 - mma:        Builds all of the modules in the current directory, and their dependencies.
 - mmma:       Builds all of the modules in the supplied directories, and their dependencies.
 - provision:  Flash device with all required partitions. Options will be passed on to fastboot.
+- aospremote: Adds a git remote for matching AOSP repository.
 - cgrep:      Greps on all local C/C++ files.
 - ggrep:      Greps on all local Gradle files.
 - jgrep:      Greps on all local Java files.
@@ -53,6 +54,21 @@ EOF
     done
     echo $A
 }
+
+function aospremote()
+{
+    if ! [ -d ".git" ]
+    then
+        echo -e "\033[1;31mnot a git repository\033[0m"
+        return 1
+    fi
+    git remote remove aosp 2> /dev/null
+    PROJECT=$(pwd -P | sed "s#$ANDROID_BUILD_TOP\/##")
+    PFX="platform/"
+    git remote add aosp https://android.googlesource.com/$PFX$PROJECT
+    echo "Remote 'aosp' created"
+}
+
 
 # Get all the build variables needed by this script in a single call to the build system.
 function build_build_var_cache()
