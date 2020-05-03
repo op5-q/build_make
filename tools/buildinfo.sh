@@ -66,4 +66,6 @@ echo "ro.aosip.device=$AOSIP_DEVICE"
 
 echo "net.hostname=$PRODUCT_NAME"
 
+echo "ro.nitrogen.version=$NITROGEN_VERSION"
+
 echo "# end build properties"
